@@ -14,7 +14,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: ['http://localhost:5173',"https://school-management-frontend-azure.vercel.app/"], // Replace with your actual frontend URL if different
+  origin: ['http://localhost:5173',"https://school-management-frontend-azure.vercel.app/","https://school-management-frontend-azure.vercel.app"], // Replace with your actual frontend URL if different
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add all methods your frontend uses
   allowedHeaders: ['Content-Type', 'Authorization'], // Add any custom headers your frontend sends
 }));
