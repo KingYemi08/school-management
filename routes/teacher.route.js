@@ -1,9 +1,10 @@
 import express from "express"
 import { addTeacher, getTeacherById, getTeachers, loginTeacher } from "../controller/teacher.controller.js"
 import {  authorize, protect } from "../middleware/authMiddleware.js"
+import uploadMiddleWare from "../utils/upload.js"
 const router = express.Router()
 
-router.post("/", protect, authorize("admin"), addTeacher)
+router.post("/", protect, authorize("admin"), uploadMiddleWare, addTeacher)
 router.post("/login", loginTeacher)
 router.get("/", protect, authorize("admin"), getTeachers)
 router.get("/:id", getTeacherById)

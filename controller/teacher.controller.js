@@ -15,8 +15,9 @@ export const addTeacher = async (req, res) => {
       sucess: false,
     });
   }
+  const avatar = req.files?.avatar?.[0].path || null
   try {
-    const newTeacher = new Teacher({ name, email, gender, password });
+    const newTeacher = new Teacher({ name, email, gender, password, avatar: avatar });
     newTeacher.courses.push(course);
     course.teacher.push(newTeacher);
     await newTeacher.save();
